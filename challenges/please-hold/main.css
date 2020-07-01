@@ -1,0 +1,46 @@
+main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -10vh;
+  width: 100%;
+  max-width: 600px;
+}
+
+.holder {
+  padding: 40px;
+
+  border: 2px solid rgb(124, 143, 226);
+  border-radius: 20px;
+  background-color: rgb(124, 143, 226, 0.3);
+
+  user-select: none;
+  cursor: pointer;
+}
+
+.counter {
+  margin-top: 100px;
+  display: block;
+  text-align: center;
+
+  font-size: 2em;
+  user-select: none;
+  cursor: pointer;
+
+  font-family: monospace;
+}
