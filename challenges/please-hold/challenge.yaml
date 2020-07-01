@@ -1,0 +1,11 @@
+name: please-hold
+category: main
+description: >
+  Please hold. Your business is very important to us.
+flags:
+  - HTM{adaa7f2f0379108070700c0bf084586a}
+points: 10
+deploy:
+  docker: yes
+  internalPort: 80
+  externalPort: 30040
