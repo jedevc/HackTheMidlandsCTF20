@@ -98,13 +98,15 @@ def validate_challenges(args):
             success = False
             print(f"\n{Fore.RED}✗{Style.RESET_ALL} {message}", end="")
 
+        NAME_REGEX = "^[a-zA-Z0-9-_]+$"
+
         if challenge.error is not None:
             fail(f"challenge parse error ({challenge.error})")
         else:
             if not challenge.name:
                 fail("challenge name must not be empty")
-            elif not (challenge.name.isdecimal() or challenge.name.isalnum()):
-                fail("challenge name must not be alpha-numeric")
+            elif not re.match(NAME_REGEX, challenge.name):
+                fail(f"challenge name does not match regex \"{NAME_REGEX}\"")
             elif challenge.name in existing_challenges:
                 fail("challenge name must not be a duplicate")
             else:
@@ -112,8 +114,8 @@ def validate_challenges(args):
 
             if not challenge.category:
                 fail("challenge category must not be empty")
-            if not (challenge.name.isdecimal() or challenge.name.isalnum()):
-                fail("category name must not be alpha-numeric")
+            elif not re.match(NAME_REGEX, challenge.category):
+                fail(f"challenge category does not match regex \"{NAME_REGEX}\"")
 
             for filename in challenge.files:
                 filename_relative = os.path.join(
