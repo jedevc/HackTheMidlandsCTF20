@@ -1,12 +1,9 @@
 window.addEventListener("DOMContentLoaded", function () {
-  var initialCounter = 7594653;
-  var initialFlag = "INITIAL_VALUE";
-
+  var initialCounter = 1337133713371337;
   var counter = initialCounter;
-  var flag = initialFlag;
 
-  var counterEl = document.getElementById("counter");
   var flagEl = document.getElementById("flag");
+  var counterEl = document.getElementById("counter");
 
   var clicked = false;
   function mouseDown() {
@@ -22,15 +19,17 @@ window.addEventListener("DOMContentLoaded", function () {
 
   function update() {
     if (clicked) {
-      if (counter <= 0) {
-        flagEl.innerHTML = "HTM{" + flag + "}";
+      if (counter == 0) {
+        fetch("/flag/" + counter.toString() + initialCounter.toString()).then(function(response) {
+          response.text().then(function(text) {
+            flagEl.innerHTML = text
+          })
+        })
       } else {
         counter -= 1;
-        flag = md5(flag);
       }
     } else {
       counter = initialCounter;
-      flag = initialFlag;
     }
     counterEl.innerHTML = counter;
   }
