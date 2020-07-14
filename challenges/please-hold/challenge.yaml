@@ -7,5 +7,6 @@ flags:
 points: 10
 deploy:
   docker: yes
-  internalPort: 80
-  externalPort: 4000
+  ports:
+    - internal: 80
+      external: 4000

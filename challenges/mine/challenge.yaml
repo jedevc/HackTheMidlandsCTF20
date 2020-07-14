@@ -14,5 +14,10 @@ flags:
 points: 10
 deploy:
   docker: yes
-  internalPort: 10053
-  externalPort: 4001
+  ports:
+    - internal: 10053
+      external: 4001
+      protocol: tcp
+    - internal: 10053
+      external: 4001
+      protocol: udp

@@ -87,7 +87,7 @@ def validate_challenges(args):
 
     existing_challenges = set()
 
-    for challenge in Challenge.load_all(True):
+    for challenge in Challenge.load_all(False):
         print(challenge.path, end="")
 
         failed = False
@@ -269,20 +269,37 @@ class Challenge:
 
 
 class Deploy:
-    def __init__(
-        self, docker: bool = False, internalPort: int = 0, externalPort: int = 0
-    ):
+    def __init__(self, docker: bool = False, ports: List["Port"] = None):
         self.docker = docker
-        self.internalPort = internalPort
-        self.externalPort = externalPort
+        self.ports = ports if ports else []
 
     @staticmethod
-    def _load_dict(data: Dict[str, Any]):
+    def _load_dict(data: Dict[str, Any]) -> "Deploy":
         return Deploy(
             docker=data.get("docker", False),
-            internalPort=data.get("internalPort", 0),
-            externalPort=data.get("externalPort", 0),
+            ports=[Port._load_dict(port) for port in data.get("ports", [])],
         )
+
+
+class Port:
+    def __init__(self, internal: int, external: int, protocol: str = "tcp"):
+        self.internal = internal
+        self.external = external
+        self.protocol = protocol
+
+    @staticmethod
+    def _load_dict(data: Dict[str, Any]) -> "Port":
+        return Port(
+            internal=data.get("internal", 0),
+            external=data.get("external", 0),
+            protocol=data.get("protocol", "tcp"),
+        )
+
+    def __repr__(self) -> str:
+        return f"<Port {self.external}:{self.internal}/{self.protocol}>"
+
+    def __str__(self) -> str:
+        return repr(self)
 
 
 class ChallengeLoadError(RuntimeError):
