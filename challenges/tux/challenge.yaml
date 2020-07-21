@@ -1,0 +1,11 @@
+name: tux
+category: main
+description: >
+  I started making a level for my favourite game, but it's not finished yet.
+
+  Could you take a look and see if you can make it more fun pls?
+files:
+  - level1.stl
+flags:
+  - HTM{EPIC_PENGUIN}
+points: 10
