@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+<body>
+  <script>
+    console.log("See the source code on GitHub here: {{ github }}")
+  </script>
+
+  <div class="section">
+    <div class="container">
+      {% if flag %}
+      <h1 class="title is-family-monospace">{{ flag }}</h1>
+      {% else %}
+    </div>
+  </div>
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <form class="box" method="POST">
+        <div class="field">
+          <label class="label">Username</label>
+          <div class="control has-icons-left">
+            <input class="input" name="username" type="text">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left">
+            <input class="input" name="password" type="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-key"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button class="button is-link">
+              <span class="icon is-small">
+                <i class="fas fa-sign-in-alt"></i>
+              </span>
+              <span>Login</span>
+            </button>
+          </div>
+        </div>
+      </form>
+      {% if error %}
+      <div class="message is-danger">
+        <div class="message-body">
+          <p>{{ error }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</body>
+</html>

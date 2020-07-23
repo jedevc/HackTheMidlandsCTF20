@@ -1,0 +1,16 @@
+name: login
+category: main
+description: >
+  Last year our login portal got hacked because the programmer was too lazy,
+  so this time, we actually wrote a proper password checker, and made it open
+  source so anyone can see it and help us fix security bugs.
+
+  Don't think you can get through it now!
+flags:
+  - HTM{}
+points: 10
+deploy:
+  docker: yes
+  ports:
+    - internal: 4000
+      external: 4002
