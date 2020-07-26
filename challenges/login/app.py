@@ -34,10 +34,5 @@ def home():
     return flask.render_template('home.html', flag=flag, error=error, github=GITHUB)
 
 
-@app.route('/static/<path:filename>')
-def static_files(filename):
-    return flask.send_from_directory('files', filename)
-
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)
