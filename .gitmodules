@@ -1,0 +1,3 @@
+[submodule "ctf-infra"]
+	path = infra
+	url = https://github.com/jedevc/ctf-infra.git
