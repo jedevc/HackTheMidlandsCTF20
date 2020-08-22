@@ -1,0 +1,12 @@
+server {
+    server_name main;
+    client_max_body_size 25m;
+
+    listen 80;
+    listen [::]:80;
+
+    location / {
+        autoindex on;
+        root /var/www/main;
+    }
+}

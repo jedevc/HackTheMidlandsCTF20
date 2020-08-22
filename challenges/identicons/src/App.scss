@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+
+  font-family: "Merriweather", serif;
+}
+
+.login-container {
+  box-sizing: border-box;
+  margin: 10vh;
+  height: 80vh;
+  padding: 0.2em;
+
+  width: 40vw;
+
+  border: 2px solid #555;
+
+  a {
+    display: block;
+    margin-top: 1.2em;
+    color: black;
+  }
+
+  .login {
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    box-sizing: border-box;
+
+    border: 1px solid #555;
+
+    padding-top: 30vh;
+
+    display: flex;
+
+    .form {
+      flex: 2 1 auto;
+
+      label {
+        font-weight: bold;
+        display: block;
+        font-variant-caps: small-caps;
+      }
+
+      input[type="password"] {
+        width: calc(100% - 2em);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      input[type="submit"] {
+        margin-top: 1em;
+      }
+    }
+
+    .identicons {
+      flex: 1 1 auto;
+
+      font-size: 2em;
+      margin-top: 0.6em;
+
+      > * {
+        margin-left: 0.5em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .login-container {
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login-container {
+    margin: 1em;
+    width: calc(100vw - 2em);
+
+    .login {
+      flex-direction: column;
+
+      .form {
+        flex: 0 1 auto;
+      }
+    }
+  }
+}
