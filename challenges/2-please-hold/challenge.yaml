@@ -4,6 +4,7 @@ description: >
   Please hold. Your business is very important to us.
 flags:
   - HTM{j00R_call_mAY_bE_rEc0rdeD}
+requirements: tux
 points: 10
 deploy:
   docker: yes

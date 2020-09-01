@@ -24,7 +24,15 @@ export default function App() {
   return (
     <div>
       {flag ? (
-        <p>{`HTM{${flag}}`}</p>
+        <>
+          <p>
+            This challenge solution is actually based on a real-world
+            vulnerability!
+            <br />
+            Yup. Someone actually screwed this up.
+          </p>
+          <p>{`HTM{${flag}}`}</p>
+        </>
       ) : (
         <Login setFlagValue={setFlag} />
       )}

@@ -11,6 +11,7 @@ description: >
   there's already some gold stashed away at (0, 0).
 flags:
   - HTM{NOWHERE_SHOW}
+requirements: flag-vault
 points: 10
 deploy:
   docker: yes

@@ -8,6 +8,7 @@ description: >
   Don't think you can get through it now!
 flags:
   - HTM{}
+requirements: please-hold
 points: 10
 deploy:
   docker: yes
