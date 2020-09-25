@@ -1,0 +1,13 @@
+name: shipit
+category: main
+description: >
+  I've just finished creating this image - can you deploy it for me please, I
+  can't seem to login anymore.
+  
+  Don't worry if things look weird, you should be able to work it out!
+flags:
+  - HTM{7174niC_f4ilur3}
+points: 10
+requirements: mine
+files:
+  - shipit.tar
