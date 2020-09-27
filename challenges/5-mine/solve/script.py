@@ -20,7 +20,7 @@ def main():
         x += 1
 
 def lookup(x, y):
-    proc = subprocess.run(f"dig '{x}.{y}.mine' -p4053 @127.0.0.1 +short", shell=True, check=True, stdout=subprocess.PIPE)
+    proc = subprocess.run(f"dig '{x}.{y}.mine' -p4003 @127.0.0.1 +short", shell=True, check=True, stdout=subprocess.PIPE)
     return proc.stdout.decode().strip()
 
 def mineral(code):

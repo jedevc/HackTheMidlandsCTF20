@@ -14,4 +14,4 @@ deploy:
   docker: yes
   ports:
     - internal: 4000
-      external: 4002
+      external: 4001

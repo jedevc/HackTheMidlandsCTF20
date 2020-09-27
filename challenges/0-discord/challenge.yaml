@@ -1,0 +1,10 @@
+name: discord
+category: main
+description:
+flags:
+  - HTM{C0M3_1_c0m3_4ll}
+points: 10
+deploy:
+  docker: yes
+  env:
+    - DISCORD_TOKEN

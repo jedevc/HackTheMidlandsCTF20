@@ -8,5 +8,5 @@ points: 10
 deploy:
   docker: yes
   ports:
-    - internal: 4000
+    - internal: 80
       external: 4002

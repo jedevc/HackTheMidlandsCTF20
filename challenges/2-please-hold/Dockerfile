@@ -1,4 +1,4 @@
-FROM node
+FROM node:14
 
 RUN npm install uglify-js --global
 COPY src/main.js main.js

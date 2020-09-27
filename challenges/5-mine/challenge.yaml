@@ -17,8 +17,8 @@ deploy:
   docker: yes
   ports:
     - internal: 10053
-      external: 4001
+      external: 4003
       protocol: tcp
     - internal: 10053
-      external: 4001
+      external: 4003
       protocol: udp
