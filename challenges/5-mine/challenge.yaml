@@ -2,6 +2,10 @@ name: mine
 display: Mine
 category: main
 description: >
+  I've managed to get some useful information from the vault you managed to
+  hack:
+
+  <code>
   Get "dig"ing! We've got lots of precious minerals sitting around... but we
   only really care about the gold!
 
@@ -10,6 +14,9 @@ description: >
 
   Because we love our new users, we'll let you in on a little secret -
   there's already some gold stashed away at (0, 0).
+  </code>
+
+  I'm at a loss...
 flags:
   - HTM{NOWHERE_SHOW}
 requirements: flag-vault

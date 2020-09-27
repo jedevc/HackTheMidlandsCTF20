@@ -2,9 +2,18 @@ name: tux
 display: Tux
 category: main
 description: >
-  I started making a level for my favourite game, but it's not finished yet.
+  Looks like that bot was busy hiding bigger secrets! After digging around a
+  bit more with that flag you sent me, I came across this message with a file
+  attached:
 
-  Could you take a look and see if you can make it more fun pls?
+  <code>
+  Gaming is awesome! I love games so much I've started to make a few levels
+  for one of my favourites!
+
+  The level's not quite done, but I think it's still really really fun.
+  </code>
+
+  Could you take a look?
 files:
   - level1.stl
 flags:

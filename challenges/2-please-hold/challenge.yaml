@@ -2,7 +2,14 @@ name: please-hold
 display: Please Hold
 category: main
 description: >
-  Please hold. Your business is very important to us.
+  Down the rabbit hole! I think this is bigger than we thought!
+  
+  Following on from your findings, I've come across this really interesting
+  contact form - but it seems to have some sort of powerful protections that
+  stop me from actually talking to someone!
+
+  I think if we could just find someone to talk to, we'd be able to find out
+  way more about these people...
 flags:
   - HTM{j00R_call_mAY_bE_rEc0rdeD}
 requirements: tux

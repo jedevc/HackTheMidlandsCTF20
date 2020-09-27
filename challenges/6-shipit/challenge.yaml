@@ -2,10 +2,17 @@ name: shipit
 display: shipit
 category: main
 description: >
+  The final stage! If we can pull this off, we'll take the core servers!
+
+  Have a look for yourself:
+
+  <code>
   I've just finished creating this image - can you deploy it for me please, I
-  can't seem to login anymore.
-  
-  Don't worry if things look weird, you should be able to work it out!
+  can't seem to login anymore!
+  </code>
+
+  It definitely doesn't seem to be a <em>normal</em> "image" at all, I can't
+  seem to open it in anything!
 flags:
   - HTM{7174niC_f4ilur3}
 points: 10

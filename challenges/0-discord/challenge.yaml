@@ -1,7 +1,15 @@
 name: discord
 display: Discord
 category: main
-description:
+description: >
+  Welcome back to HTM!
+
+  This year's CTF is full of mystery, intrigue and surprises... eh, not
+  really, it's just meant to be a bit fun!
+
+  But, I have heard whispers that there's a bot on the discord server who's
+  giving out flags... Seems quite dodgy to me, who'd be crazy enough to do
+  something like that?
 flags:
   - HTM{C0M3_1_c0m3_4ll}
 points: 10

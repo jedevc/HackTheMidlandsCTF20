@@ -1,7 +1,15 @@
 name: flag-vault
 display: The Flag Vault
 category: main
-description:
+description: >
+  Ooooh!
+
+  Good work! I think we've made it into the vault, where they keep the most
+  valuable of flags! These flags appear to be <em>super</em> strength, and
+  don't have as much a pattern to them, and it might be easy to get
+  distracted by decoys...
+
+  Anyways! I'm sure you're up to it!
 flags:
   - HTM{235705b80479d6c48b92c685ab0cbab338a50d02c5d20f28fb35149bfce31a4b}
 requirements: login

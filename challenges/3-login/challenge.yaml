@@ -2,11 +2,10 @@ name: login
 display: Login
 category: main
 description: >
-  Last year our login portal got hacked because the programmer was too lazy,
-  so this time, we actually wrote a proper password checker, and made it open
-  source so anyone can see it and help us fix security bugs.
+  Hm, with your help I've managed to get in contact with someone - but I just
+  get redirected to this login portal...
 
-  Don't think you can get through it now!
+  I need your help again!
 flags:
   - HTM{}
 requirements: please-hold
