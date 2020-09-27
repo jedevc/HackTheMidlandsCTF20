@@ -1,4 +1,5 @@
 name: discord
+display: Discord
 category: main
 description:
 flags:

@@ -1,4 +1,5 @@
 name: login
+display: Login
 category: main
 description: >
   Last year our login portal got hacked because the programmer was too lazy,

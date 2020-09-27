@@ -1,4 +1,5 @@
 name: shipit
+display: shipit
 category: main
 description: >
   I've just finished creating this image - can you deploy it for me please, I
@@ -9,5 +10,5 @@ flags:
   - HTM{7174niC_f4ilur3}
 points: 10
 requirements: mine
-files:
-  - shipit.tar
+generate:
+  shipit.tar: ./generate.sh
