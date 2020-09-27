@@ -12,7 +12,8 @@ description: >
   Anyways! I'm sure you're up to it!
 flags:
   - HTM{235705b80479d6c48b92c685ab0cbab338a50d02c5d20f28fb35149bfce31a4b}
-requirements: login
+requirements:
+  - login
 points: 10
 deploy:
   docker: yes

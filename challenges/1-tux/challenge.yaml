@@ -18,4 +18,6 @@ files:
   - level1.stl
 flags:
   - HTM{EPIC_PENGUIN}
+requirements:
+  - discord
 points: 10

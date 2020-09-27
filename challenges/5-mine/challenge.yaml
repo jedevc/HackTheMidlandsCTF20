@@ -19,7 +19,8 @@ description: >
   I'm at a loss...
 flags:
   - HTM{NOWHERE_SHOW}
-requirements: flag-vault
+requirements:
+  - flag-vault
 points: 10
 deploy:
   docker: yes

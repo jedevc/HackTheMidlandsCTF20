@@ -8,7 +8,8 @@ description: >
   I need your help again!
 flags:
   - HTM{}
-requirements: please-hold
+requirements:
+  - please-hold
 points: 10
 deploy:
   docker: yes

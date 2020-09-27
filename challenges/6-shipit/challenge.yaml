@@ -16,6 +16,7 @@ description: >
 flags:
   - HTM{7174niC_f4ilur3}
 points: 10
-requirements: mine
+requirements:
+  - mine
 generate:
   shipit.tar: ./generate.sh

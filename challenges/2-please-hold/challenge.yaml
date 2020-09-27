@@ -12,7 +12,8 @@ description: >
   way more about these people...
 flags:
   - HTM{j00R_call_mAY_bE_rEc0rdeD}
-requirements: tux
+requirements:
+  - tux
 points: 10
 deploy:
   docker: yes
