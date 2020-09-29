@@ -1,3 +1,3 @@
-# HackTheMidlands CTF 2020
+![](./images/banner.png)
 
-WIP: Challenges used in HackTheMidlands v5.0
+# HackTheMidlands CTF 2020
