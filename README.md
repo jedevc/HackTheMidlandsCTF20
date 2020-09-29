@@ -21,11 +21,11 @@ number of common dependencies.
 Compile and build all the different challenge files, such as images,
 binaries, etc.
 
-    $ ./ctftool generate
+    $ ./infra/ctftool.py generate
 
 To remove all compiled challenge files:
 
-    $ ./ctftool clean
+    $ ./infra/ctftool.py clean
 
 ### Run challenges
 
@@ -35,7 +35,7 @@ Run the docker containers.
     $ export PYTHONPATH=$PWD/infra
 
     # Build docker containers
-    $ ./infra/deploy/build.sh
+    $ ./infra/deploy/build.py
 
     # Generate the docker-compose configuration
     $ mkdir -p build
