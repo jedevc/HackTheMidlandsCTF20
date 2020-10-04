@@ -1,7 +1,7 @@
 ![](./images/banner.png)
 
-This is the repo for all the challenges built for and run at the
-HackTheMidlands 2020 CTF :tada: :tada:
+This is the repo for all the challenges built for and run as the CTF mini-event
+run at HackTheMidlands 2020 :tada: :tada:
 
 It's also got a whole bunch of other stuff, like CTFd site resources,
 deployment scripts, etc.
