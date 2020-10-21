@@ -25,4 +25,4 @@ cp $BASE/README.md .
 git add .
 git commit -m "Create a README.md"
 
-echo "Git repo is at $TEMP"
+tar cvf $BASE/code.tar README.md app.py templates .git

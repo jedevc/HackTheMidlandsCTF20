@@ -5,7 +5,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./templates/* ./templates/
-COPY ./app.py ./flag.txt ./password.txt ./
+COPY ./app.py ./flag.txt ./password.txt ./code.tar ./
 
 EXPOSE 4000
 

@@ -2,8 +2,9 @@ name: tux
 display: Tux
 category: main
 description: >
-  Looks like that bot was busy hiding bigger secrets! After digging around a
-  bit more with that flag you sent me, I came across this message with a file
+  Down the rabbit hole! I think this is bigger than we thought!
+
+  Following on from your findings, I came across this message with a file
   attached:
 
   <code>
@@ -19,5 +20,5 @@ files:
 flags:
   - HTM{EPIC_PENGUIN}
 requirements:
-  - discord
+  - please-hold
 points: 10

@@ -3,8 +3,6 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-GITHUB = "https://github.com/hackthemidlands/login_portal"
-
 with open("password.txt") as f:
     PASSWORD = f.read()
 with open("flag.txt") as f:
@@ -31,8 +29,11 @@ def home():
     if not success and request.method == "POST":
         error = "Invalid username/password details"
 
-    return flask.render_template('home.html', flag=flag, error=error, github=GITHUB)
+    return flask.render_template('home.html', flag=flag, error=error)
 
+@app.route('/code.tar')
+def code():
+    return flask.send_file('./code.tar')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)

@@ -7,9 +7,11 @@ description: >
 
   I need your help again!
 flags:
-  - HTM{}
+  - HTM{L34kY_pIp35_4r3_84D}
 requirements:
-  - please-hold
+  - tux
+generate:
+  code.tar: ./generate.sh
 points: 10
 deploy:
   docker: yes

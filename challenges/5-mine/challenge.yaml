@@ -9,8 +9,8 @@ description: >
   Get "dig"ing! We've got lots of precious minerals sitting around... but we
   only really care about the gold!
 
-  Try looking some of it up, using our nameserver at BLANK and using the map
-  at <code>X.Y.mine</code>. Hopefully, you'll get rich!
+  Try looking some of it up, using our nameserver at ctf.hackthemidlands.com:4003
+  and using the map at <code>X.Y.mine</code>. Hopefully, you'll get rich!
 
   Because we love our new users, we'll let you in on a little secret -
   there's already some gold stashed away at (0, 0).
