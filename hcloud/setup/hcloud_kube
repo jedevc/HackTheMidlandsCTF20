@@ -1,0 +1,128 @@
+#!/bin/bash
+
+# bash init
+set -e
+
+# default values
+HETZNER_INSTANCE_TYPE=cx21
+HETZNER_WORKER_COUNT=0
+
+# option parsing
+usage() {
+	cat <<-"EOF"
+	usage: ./hcloud_kube [<options>]
+
+		-t	type of hetzner node
+		-n	number of worker nodes
+	EOF
+}
+while getopts "t:n:h" option; do
+	case ${option} in
+	t)
+		HETZNER_INSTANCE_TYPE=${OPTARG}
+		;;
+	n)
+		HETZNER_WORKER_COUNT=${OPTARG}
+		;;
+	h)
+		usage
+		exit 1
+		;;
+	\?)
+		exit 1
+		;;
+	esac
+done
+shift $((OPTIND-1))
+
+# require an HCLOUD_TOKEN
+if [ -z "$HCLOUD_TOKEN" ]; then
+	echo '$HCLOUD_TOKEN is not set'
+	exit 1
+fi
+
+# save source directory
+BASE=$(dirname $(realpath $0))
+
+# create ssh key
+ssh-keygen -t ed25519 -C hcloud-provision-key -f provision_key -N "" -q
+hcloud ssh-key create --name hcloud-provision-key --public-key-from-file provision_key.pub
+
+hcloud_ssh() {
+	IP=$(hcloud server ip "$1")
+	ssh -o StrictHostKeyChecking=no -o ConnectionAttempts=60 -i provision_key root@${IP} "bash -s"
+}
+
+# setup network
+hcloud network create --name kubernetes --ip-range 10.98.0.0/16
+hcloud network add-subnet kubernetes --network-zone eu-central --type server --ip-range 10.98.0.0/16
+
+# create master node
+hcloud server create \
+	--type $HETZNER_INSTANCE_TYPE \
+	--name master-1 \
+	--image ubuntu-20.04 \
+	--ssh-key hcloud-provision-key \
+	--network kubernetes \
+	--user-data-from-file $BASE/cloud-init.yml
+
+# start kubernetes
+hcloud_ssh master-1 <<"EOF"
+cloud-init status -w
+
+IP=$(ip addr | grep -P 'inet.*(ens\\d+|enp\\d+s0)' | head -n 1 | awk '{ print $4 }')
+kubeadm init \
+	--pod-network-cidr=10.244.0.0/16 \
+	--ignore-preflight-errors=NumCPU \
+	--apiserver-cert-extra-sans=$IP
+EOF
+
+# copy kubernetes config to local
+IP=$(hcloud server ip "master-1")
+scp -o StrictHostKeyChecking=no -i provision_key root@${IP}:/etc/kubernetes/admin.conf ./admin.conf
+export KUBECONFIG=./admin.conf
+
+# cluster networking
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.12.0/Documentation/kube-flannel.yml
+
+# tolerate taints
+kubectl -n kube-system patch daemonset kube-flannel-ds-amd64 --type json -p '[{"op":"add","path":"/spec/template/spec/tolerations/-","value":{"key":"node.cloudprovider.kubernetes.io/uninitialized","value":"true","effect":"NoSchedule"}}]'
+kubectl -n kube-system patch deployment coredns --type json -p '[{"op":"add","path":"/spec/template/spec/tolerations/-","value":{"key":"node.cloudprovider.kubernetes.io/uninitialized","value":"true","effect":"NoSchedule"}}]'
+if [[ "$HETZNER_WORKER_COUNT" -eq 0 ]]; then
+	kubectl taint nodes --all node-role.kubernetes.io/master-
+fi
+
+# secrets for kube
+kubectl -n kube-system create secret generic hcloud \
+	--from-literal="token=$HCLOUD_TOKEN" \
+	--from-literal=network=kubernetes
+kubectl -n kube-system create secret generic hcloud-csi \
+	--from-literal="token=$HCLOUD_TOKEN"
+
+# cloud controller manager
+kubectl apply -f https://raw.githubusercontent.com/hetznercloud/hcloud-cloud-controller-manager/master/deploy/ccm.yaml
+
+# cloud container storage
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/csi-api/release-1.14/pkg/crd/manifests/csidriver.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/csi-api/release-1.14/pkg/crd/manifests/csinodeinfo.yaml
+kubectl apply -f https://raw.githubusercontent.com/hetznercloud/csi-driver/v1.5.1/deploy/kubernetes/hcloud-csi.yml
+
+# get worker join script
+hcloud_ssh master-1 <<"EOF" > ./join_command.sh
+kubeadm token create --print-join-command
+EOF
+
+for (( i = 1; i <= $HETZNER_WORKER_COUNT; i++ )); do
+	# create worker
+	hcloud server create \
+		--type $HETZNER_INSTANCE_TYPE \
+		--name worker-${i} \
+		--image ubuntu-20.04 \
+		--ssh-key hcloud-provision-key \
+		--network kubernetes \
+		--user-data-from-file $BASE/cloud-init.yml
+
+	# join worker
+	(echo "cloud-init status -w"; cat ./join_command.sh) | hcloud_ssh worker-${i} &
+done
+wait
