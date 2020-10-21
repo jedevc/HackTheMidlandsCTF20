@@ -31,9 +31,9 @@ def home():
 
     return flask.render_template('home.html', flag=flag, error=error)
 
-@app.route('/code.tar')
+@app.route('/code.zip')
 def code():
-    return flask.send_file('./code.tar')
+    return flask.send_file('./code.zip')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000)

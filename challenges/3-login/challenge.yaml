@@ -1,17 +1,19 @@
 name: login
 display: Login
 category: main
-description: >
+description: |
   Hm, with your help I've managed to get in contact with someone - but I just
   get redirected to this login portal...
 
   I need your help again!
+
+  <a href="http://ctfchals.hackthemidlands.com:4001">ctfchals.hackthemidlands.com:4001</a>
 flags:
   - HTM{L34kY_pIp35_4r3_84D}
 requirements:
   - tux
 generate:
-  code.tar: ./generate.sh
+  code.zip: ./generate.sh
 points: 10
 deploy:
   docker: yes

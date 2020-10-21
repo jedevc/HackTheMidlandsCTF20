@@ -1,10 +1,10 @@
 name: shipit
 display: shipit
 category: main
-description: >
+description: |
   The final stage! If we can pull this off, we'll take the core servers!
 
-  Have a look for yourself:
+  Have a look at this intercepted email for yourself:
 
   <code>
   I've just finished creating this image - can you deploy it for me please, I
@@ -15,6 +15,8 @@ description: >
   seem to open it in anything!
 flags:
   - HTM{7174niC_f4ilur3}
+files:
+  - shipit.tar
 points: 10
 requirements:
   - mine

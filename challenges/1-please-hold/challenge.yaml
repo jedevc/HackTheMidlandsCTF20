@@ -1,7 +1,7 @@
 name: please-hold
 display: Please Hold
 category: main
-description: >
+description: |
   Looks like that bot was busy hiding bigger secrets! After digging around a
   bit more, I've come across this really interesting contact form - but it
   seems to have some sort of powerful protections that stop me from actually
@@ -9,6 +9,8 @@ description: >
 
   I think if we could just find someone to talk to, we'd be able to find out
   way more about these people...
+
+  <a href="http://ctfchals.hackthemidlands.com:4000">ctfchals.hackthemidlands.com:4000</a>
 flags:
   - HTM{j00R_call_mAY_bE_rEc0rdeD}
 requirements:
