@@ -17,6 +17,7 @@ generate:
 points: 10
 deploy:
   docker: yes
+  replicas: 2
   ports:
     - internal: 4000
       external: 4001

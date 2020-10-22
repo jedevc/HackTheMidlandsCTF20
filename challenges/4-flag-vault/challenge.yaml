@@ -19,6 +19,7 @@ requirements:
 points: 10
 deploy:
   docker: yes
+  replicas: 2
   ports:
     - internal: 80
       external: 4002
