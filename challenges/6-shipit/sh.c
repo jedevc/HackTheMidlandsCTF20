@@ -2,6 +2,8 @@
 #include <string.h>
 
 char FLAG[20] = "HTM{...............}";
+
+// weeeeeelp. i should've commented this out.
 char NOPE[20] = "HTM{7174niC_f4ilur3}";
 
 int check_password1(char *target, size_t length) {
