@@ -1,0 +1,19 @@
+name: bonus-auth
+display: bonus-auth
+category: main
+description: |
+  Well, we've taken control of their servers.
+
+  I guess we're done! But if you're still looking for a bit of a challenge, I
+  did find this hidden away, as a more advanced version of that last one.
+
+  Good luck and goodbye!
+flags:
+  - HTM{7H3-G4M3-15-uP}
+files:
+  - sh
+points: 0
+requirements:
+  - shipit
+generate:
+  sh: make
