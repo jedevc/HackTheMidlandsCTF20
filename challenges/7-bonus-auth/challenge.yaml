@@ -12,7 +12,7 @@ flags:
   - HTM{7H3-G4M3-15-uP}
 files:
   - sh
-points: 0
+points: 10
 requirements:
   - shipit
 generate:
