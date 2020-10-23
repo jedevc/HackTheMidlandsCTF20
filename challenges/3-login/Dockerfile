@@ -9,4 +9,4 @@ COPY ./app.py ./flag.txt ./password.txt ./code.zip ./
 
 EXPOSE 4000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:4000", "app:app"]
+CMD ["python", "app.py"]
