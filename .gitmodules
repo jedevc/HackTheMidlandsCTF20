@@ -1,3 +1,6 @@
 [submodule "ctf-infra"]
 	path = infra
 	url = https://github.com/jedevc/ctf-infra.git
+[submodule "wiki"]
+	path = wiki
+	url = https://github.com/jedevc/HackTheMidlandsCTF20.wiki.git
